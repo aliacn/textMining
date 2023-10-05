@@ -13,6 +13,7 @@ df['pageContent'].fillna('', inplace=True)
 # Ders başlıkları ve içeriklerini alın
 ders_basliklari = df['pageTitle']
 icerikler = df['pageContent']
+ders_basliklari = df['pageTitle'].str.replace('- Eğitim Bilgi Sistemi', '')
 
 # TfidfVectorizer kullanarak içerikleri vektörlere dönüştürün
 tfidf_vectorizer = TfidfVectorizer()
@@ -38,6 +39,7 @@ en_yuksek_benzerlik_ders_basliklari = [ders_basliklari[i] for i in en_yuksek_ben
 # Çubuk grafik oluşturun
 plt.figure(figsize=(10, 6))
 plt.barh(en_yuksek_benzerlik_ders_basliklari, en_yuksek_benzerlik_skorları, color='skyblue')
+
 plt.xlabel('Benzerlik Skoru')
 plt.title(f'En Benzer Dersler Paketi - {ilgilenilen_ders_adı}')
 plt.gca().invert_yaxis()  # Çubukları büyükten küçüğe sırala
