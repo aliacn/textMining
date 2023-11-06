@@ -28,14 +28,14 @@ bm402_indeksi = ders_basliklari[df['pageTitle'].str.startswith("BM402")].index[0
 # "BM402" sayfasının benzerlik skorlarını alın
 bm402_benzerlik = benzerlik_matrisi[bm402_indeksi]
 
-# Benzerlik skorlarını sıralayın ve en uyumlu 5 dersi alın (kendi dersini çıkarın)
-en_uyumlu_dersler = [(ders_basliklari[i], benzerlik) for i, benzerlik in enumerate(bm402_benzerlik) if i != bm402_indeksi]
+# Benzerlik skorlarını sıralayın ve en uyumlu 5 dersi alın
+en_uyumlu_dersler = [(ders_basliklari[i], benzerlik) for i, benzerlik in enumerate(bm402_benzerlik) if i != bm402_indeksi and benzerlik < 1]
 en_uyumlu_dersler = sorted(en_uyumlu_dersler, key=lambda x: x[1], reverse=True)[:5]
 
-
-# Grafik çizimi
+# Dersleri ve benzerliklerini ayrı listelerde saklayın
 dersler, benzerlikler = zip(*en_uyumlu_dersler)
 
+# Grafik çizimi
 plt.figure(figsize=(10, 6))
 plt.barh(range(len(dersler)), benzerlikler, color='skyblue')
 plt.yticks(range(len(dersler)), dersler)  # Başlıkları tam olarak göstermek için y-tick ayarı
