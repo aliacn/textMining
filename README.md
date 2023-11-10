@@ -5,6 +5,7 @@ Bu proje, Bilgisayar Mühendisliği bölümüne ait ders sayfalarındaki içerik
 ## Projeyi Çalıştırma
 
 Proje kodlarına ve kullanım talimatlarına bu depodan ulaşabilirsiniz.
+onaPageonLinkFULL.py ile web sitemizdeki verileri CSV üzerine alıyoruz. Sonrasında istenilen algoritmalar ile metin madenciliği yapabiliriz.
 
 ## Gereksinimler
 
