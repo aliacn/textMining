@@ -1,6 +1,5 @@
 import pandas as pd
-import matplotlib.pyplot
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
 from sklearn.feature_extraction.text import CountVectorizer
 
 # CSV dosyasını okuyun
@@ -13,14 +12,10 @@ df['pageContent'].fillna('', inplace=True)
 tum_icerik = ' '.join(df['pageContent'])
 
 # İstediğiniz kelimeleri hariç tutun (örneğin, "ders" ve "konu")
-<<<<<<< HEAD
-hariç_tutulan_kelimeler = ['ders','çalışması','bir','etik','sınıf','uygulamaları','dışı','çalışma', 'konu',"hafta","metodu","öğretim","ile","ara","proje","tartışmalı","giriş","temel","sınav"]
-=======
-hariç_tutulan_kelimeler = ['ders', 'konu',"hafta","metodu","öğretim","ile","ara","proje","tartışmalı","giriş","temel","sınav"]
->>>>>>> origin/master
+haric_tutulan_kelimeler = ['ders', 'konu', "hafta", "metodu", "öğretim", "ile", "ara", "proje", "tartışmalı", "giriş", "temel", "sınav"]
 
 # Kelime sıklıklarını saymak için CountVectorizer kullanın
-count_vectorizer = CountVectorizer(stop_words=hariç_tutulan_kelimeler, token_pattern=r'\b\w{3,}\b')
+count_vectorizer = CountVectorizer(stop_words=haric_tutulan_kelimeler, token_pattern=r'\b\w{3,}\b')
 kelime_sikliklari = count_vectorizer.fit_transform([tum_icerik])
 
 # Kelimeleri ve sıklıkları alın
